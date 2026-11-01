@@ -10,7 +10,11 @@ export const Reserve = defineActivity("typedReserve", {
   payload: { sku: Schema.String, quantity: Schema.Finite },
   success: Schema.String,
   error: OutOfStock,
-  options: { startToCloseTimeout: "1 minute", retry: { maximumAttempts: 3 } },
+  options: {
+    startToCloseTimeout: "1 minute",
+    heartbeatTimeout: "30 seconds",
+    retry: { maximumAttempts: 3, initialInterval: "1 second", backoffCoefficient: 2 },
+  },
 });
 
 export const TypedActivityDemo = Workflow.make("effectTypedActivity", {

@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased (pminds fork)
+
+- Target Effect 4.1.0 and Temporal SDK 1.21.1, including the examples.
+- Accept full SDK activity options in declarations, eliminating wrappers for
+  heartbeat timeouts and retry intervals. Type-only imports preserve sandbox isolation.
+- Add the optional worker-only `makeActivityRunner`: application context, tracing,
+  cancellation propagation, and opt-in scoped heartbeats. Existing custom runners
+  remain supported; typed errors remain non-retryable.
+- Verify the upgrade with the existing real-server and replay suites, plus runner
+  tests and real-server cancellation/finalizer coverage.
+
 ## Versioning policy
 
 effect-temporal is pre-1.0: **minor bumps may break APIs**; patch bumps are fixes only.

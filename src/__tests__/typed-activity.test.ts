@@ -3,6 +3,8 @@
 // error channel, and `sleepUntil` under time skipping.
 
 import * as Effect from "effect/Effect";
+import * as Context from "effect/Context";
+import { makeActivityRunner } from "../worker.js";
 import { ApplicationFailure, WorkflowFailedError } from "@temporalio/client";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { handle, implementActivities, type ActivityRunner } from "../activities.js";
@@ -38,6 +40,14 @@ const run = (activities: Record<string, (wire: unknown) => Promise<unknown>>, sk
   });
 
 describe("typed activities", { concurrent: false }, () => {
+  it("runs the worker runner against a real Temporal server", async () => {
+    const runner = makeActivityRunner({ context: Context.empty(), heartbeatInterval: "5 seconds" });
+    const activities = implementActivities(runner, [
+      handle(Reserve, ({ sku }) => Effect.succeed(`reserved:${sku}`)),
+    ]);
+    expect(await run(activities, "worker-runner")).toBe("reserved:worker-runner");
+  });
+
   it("decodes a validated payload in, and a typed success out", async () => {
     const seen: Array<unknown> = [];
     const activities = implementReserve((payload) =>
