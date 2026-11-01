@@ -30,13 +30,14 @@
  * carry the wire identity explicitly (their `name`), so refactoring code
  * never changes the wire.
  *
- * This module must never import `@temporalio/*` or the sandbox half: it is
- * the portable surface.
+ * This module has no runtime imports from `@temporalio/*` or the sandbox
+ * half. Temporal option types are erased at build time.
  *
  * @since 0.3.0
  */
 
 import * as Context from "effect/Context";
+import type { ActivityOptions } from "@temporalio/workflow";
 import type * as Duration from "effect/Duration";
 import * as Effect from "effect/Effect";
 import type * as Exit from "effect/Exit";
@@ -63,19 +64,15 @@ export const DEFAULT_ACTIVITY_OPTIONS = {
 } as const;
 
 /**
- * The Temporal activity options a declaration carries — the subset of
- * `proxyActivities` options a declared activity pins at declaration time.
+ * Temporal activity options pinned by a declaration. Keep the SDK's full
+ * option types, including heartbeat, cancellation, and retry policies.
  *
  * @since 0.4.0
  * @category models
  */
-export interface TypedActivityOptions {
-  readonly startToCloseTimeout: string | number;
-  readonly retry?: {
-    readonly maximumAttempts?: number;
-    readonly nonRetryableErrorTypes?: string[];
-  };
-}
+export type TypedActivityOptions = ActivityOptions & {
+  readonly startToCloseTimeout: NonNullable<ActivityOptions["startToCloseTimeout"]>;
+};
 
 /**
  * The serializable projection of a declared activity: name, the three

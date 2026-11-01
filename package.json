@@ -56,6 +56,10 @@
       "types": "./dist/wire.d.ts",
       "default": "./dist/wire.js"
     },
+    "./worker": {
+      "types": "./dist/worker.d.ts",
+      "default": "./dist/worker.js"
+    },
     "./package.json": "./package.json"
   },
   "scripts": {
@@ -72,12 +76,13 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@temporalio/client": "~1.19.0",
-    "@temporalio/nexus": "~1.19.0",
-    "@temporalio/testing": "~1.19.0",
-    "@temporalio/worker": "~1.19.0",
-    "@temporalio/workflow": "~1.19.0",
-    "effect": "4.0.0"
+    "@temporalio/activity": "~1.21.1",
+    "@temporalio/client": "~1.21.1",
+    "@temporalio/nexus": "~1.21.1",
+    "@temporalio/testing": "~1.21.1",
+    "@temporalio/worker": "~1.21.1",
+    "@temporalio/workflow": "~1.21.1",
+    "effect": "4.1.0"
   },
   "peerDependenciesMeta": {
     "@temporalio/nexus": {
@@ -94,15 +99,16 @@
     "@noble/hashes": "^2.0.1"
   },
   "devDependencies": {
-    "@temporalio/client": "1.19.0",
-    "@temporalio/common": "1.19.0",
-    "@temporalio/nexus": "1.19.0",
-    "@temporalio/proto": "1.19.0",
-    "@temporalio/testing": "1.19.0",
-    "@temporalio/worker": "1.19.0",
-    "@temporalio/workflow": "1.19.0",
+    "@temporalio/activity": "1.21.1",
+    "@temporalio/client": "1.21.1",
+    "@temporalio/common": "1.21.1",
+    "@temporalio/nexus": "1.21.1",
+    "@temporalio/proto": "1.21.1",
+    "@temporalio/testing": "1.21.1",
+    "@temporalio/worker": "1.21.1",
+    "@temporalio/workflow": "1.21.1",
     "@types/node": "^22.19.9",
-    "effect": "4.0.0",
+    "effect": "4.1.0",
     "nexus-rpc": "^0.0.2",
     "oxlint": "1.77.0",
     "typescript": "^5.9.0",
