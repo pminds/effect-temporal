@@ -1,6 +1,14 @@
 # Changelog
 
-## Unreleased (pminds fork)
+## 0.6.2-pminds.1
+
+- Treat cancelled typed activities as Effect interruption rather than defects.
+  Uncaught activity cancellation also marks the workflow instance interrupted so
+  the run boundary reports Temporal cancellation rather than retrying a workflow task.
+- Add real-server coverage for cancellation recovery and uncaught cancellation.
+- Point fork repository and issue metadata at pminds/effect-temporal.
+
+## pminds-0.6.1-1
 
 - Target Effect 4.1.0 and Temporal SDK 1.21.1, including the examples.
 - Accept full SDK activity options in declarations, eliminating wrappers for
