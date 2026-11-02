@@ -1,6 +1,6 @@
 {
   "name": "@springbird/effect-temporal",
-  "version": "0.6.1",
+  "version": "0.6.2-pminds.1",
   "description": "Run `effect/workflow` programs (Workflow / Activity / DurableClock / DurableDeferred) on a Temporal engine, plus durable mailboxes, updates, queryable state, versioning, schedules, and Nexus operations.",
   "license": "MIT",
   "type": "module",
@@ -117,11 +117,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TeamSpringbird/effect-temporal.git"
+    "url": "git+https://github.com/pminds/effect-temporal.git"
   },
   "homepage": "https://www.effect-temporal.com",
   "bugs": {
-    "url": "https://github.com/TeamSpringbird/effect-temporal/issues"
+    "url": "https://github.com/pminds/effect-temporal/issues"
   },
   "keywords": [
     "effect",
