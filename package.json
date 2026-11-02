@@ -1,6 +1,6 @@
 {
   "name": "@springbird/effect-temporal",
-  "version": "0.6.2-pminds.1",
+  "version": "0.6.2-pminds.2",
   "description": "Run `effect/workflow` programs (Workflow / Activity / DurableClock / DurableDeferred) on a Temporal engine, plus durable mailboxes, updates, queryable state, versioning, schedules, and Nexus operations.",
   "license": "MIT",
   "type": "module",
